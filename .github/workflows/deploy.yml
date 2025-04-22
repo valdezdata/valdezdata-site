@@ -1,10 +1,9 @@
-# .github/workflows/deploy.yml
 name: Deploy Eleventy site to Pages
 
 on:
   # Se ejecuta en pushes a la rama principal
   push:
-    branches: ["main"] # O "master" si tu rama se llama así
+    branches: ["main"]
 
   # Permite ejecutarlo manualmente desde la pestaña Actions
   workflow_dispatch:
