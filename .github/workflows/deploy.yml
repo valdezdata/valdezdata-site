@@ -1,0 +1,56 @@
+# .github/workflows/deploy.yml
+name: Deploy Eleventy site to Pages
+
+on:
+  # Se ejecuta en pushes a la rama principal
+  push:
+    branches: ["main"] # O "master" si tu rama se llama así
+
+  # Permite ejecutarlo manualmente desde la pestaña Actions
+  workflow_dispatch:
+
+# Permisos necesarios para el token de GitHub
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Configuración de concurrencia
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Trabajo de construcción
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18" # O una versión LTS compatible con Eleventy 3+
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
+      - name: Build with Eleventy
+        run: npm run build # Ejecuta 'eleventy', que genera en la carpeta 'docs'
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "docs" # Sube la carpeta 'docs' generada
+
+  # Trabajo de despliegue
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
