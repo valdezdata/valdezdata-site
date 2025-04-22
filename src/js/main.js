@@ -5,30 +5,30 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM completamente cargado y parseado."); // Log 1: Confirma que el evento se dispara
 
   // Obtener referencias a los elementos del DOM
-  const asciiArtContainer = document.getElementById("ascii-art");
+  /* const asciiArtContainer = document.getElementById("ascii-art"); */
   const hashtagsOutput = document.getElementById("hashtags-output");
   const introOutput = document.getElementById("intro-output");
   const cursorSpan = document.querySelector(".blinking-cursor"); // Referencia al cursor
 
   // Log 2: Verifica si los elementos clave y el cursor se encontraron
   console.log("Elementos encontrados:", {
-    asciiArtContainer: !!asciiArtContainer, // true si encontrado, false si no
+    /* asciiArtContainer: !!asciiArtContainer, // true si encontrado, false si no */
     hashtagsOutput: !!hashtagsOutput,
     introOutput: !!introOutput,
     cursorSpan: !!cursorSpan,
   });
 
   // --- ASCII Art ---
-  const asciiArt = `
- #     #     #     #        ######   #######  #######  ######      #     #######     #    
- #     #    # #    #        #     #  #             #   #     #    # #       #       # #   
- #     #   #   #   #        #     #  #            #    #     #   #   #      #      #   #  
- #     #  #     #  #        #     #  #####       #     #     #  #     #     #     #     # 
-  #   #   #######  #        #     #  #          #      #     #  #######     #     ####### 
-   # #    #     #  #        #     #  #         #       #     #  #     #     #     #     # 
-    #     #     #  #######  ######   #######  #######  ######   #     #     #     #     # 
-                                                                                          
-`;
+  //   const asciiArt = `
+  //  #     #     #     #        ######   #######  #######  ######      #     #######     #
+  //  #     #    # #    #        #     #  #             #   #     #    # #       #       # #
+  //  #     #   #   #   #        #     #  #            #    #     #   #   #      #      #   #
+  //  #     #  #     #  #        #     #  #####       #     #     #  #     #     #     #     #
+  //   #   #   #######  #        #     #  #          #      #     #  #######     #     #######
+  //    # #    #     #  #        #     #  #         #       #     #  #     #     #     #     #
+  //     #     #     #  #######  ######   #######  #######  ######   #     #     #     #     #
+  //
+  // `;
   // --- Contenido para escribir ---
   const hashtags =
     "#dataengineering #datainfra #mlops #dataintegrity #ai #dataops #bigdata #businessintelligence #security";
@@ -47,7 +47,7 @@ Para tutoriales prácticos y contenido sobre datos, te invito a visitar mis rede
     }
 
     let i = 0;
-    element.innerHTML = ""; // Limpiar
+    element.innerHTML = "";
 
     function type() {
       if (i < text.length) {
@@ -86,11 +86,12 @@ Para tutoriales prácticos y contenido sobre datos, te invito a visitar mis rede
   }
 
   // --- Lógica específica para la página de inicio ---
-  if (asciiArtContainer && hashtagsOutput && introOutput && cursorSpan) {
+  // Need ASCII Art then add const
+  if (hashtagsOutput && introOutput && cursorSpan) {
     console.log("Ejecutando lógica de la página de inicio.");
 
-    asciiArtContainer.textContent = asciiArt; // Usar textContent es más seguro para ASCII
-    console.log("ASCII Art mostrado.");
+    // asciiArtContainer.textContent = asciiArt; // Usar textContent es más seguro para ASCII
+    // console.log("ASCII Art mostrado.");
 
     cursorSpan.style.display = "none";
 
@@ -131,4 +132,4 @@ Para tutoriales prácticos y contenido sobre datos, te invito a visitar mis rede
       cursorSpan.style.display = "inline-block";
     }
   }
-}); // <-- ¡Asegúrate que esta es la última línea del archivo!
+});

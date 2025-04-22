@@ -1,12 +1,10 @@
 // .eleventy.js
 module.exports = function (eleventyConfig) {
-  // Copiar carpetas estáticas al output ('docs')
   eleventyConfig.addPassthroughCopy("src/css");
-  eleventyConfig.addPassthroughCopy("src/js"); // <-- Nueva línea
+  eleventyConfig.addPassthroughCopy("src/js");
 
-  // Observar cambios para recarga en vivo
   eleventyConfig.addWatchTarget("src/css/");
-  eleventyConfig.addWatchTarget("src/js/"); // <-- Nueva línea
+  eleventyConfig.addWatchTarget("src/js/");
 
   return {
     dir: {

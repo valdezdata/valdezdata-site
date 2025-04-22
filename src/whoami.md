@@ -1,7 +1,7 @@
 ---
 layout: base.njk
-title: Quién Soy (whoami)
-command: "whoami --verbose"
+title: Who am I
+command: "cat whoami.txt"
 permalink: /whoami/
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: Usos
-command: "cat ~/usos.txt"
+command: "cat usos.txt"
 permalink: /usos/
 ---
 

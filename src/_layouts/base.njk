@@ -1,4 +1,3 @@
-{# src/_layouts/base.njk #}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
     <script>
-        console.log('DEBUG: page.url desde Nunjucks =', '{{ page.url }}');
+        console.log('DEBUG: page.url from Nunjucks =', '{{ page.url }}');
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -18,19 +17,20 @@
 
     <header class="mb-8">
         <nav class="flex space-x-4">
-            <a href="/" class="nav-link {% if page.url == '/' %}active{% endif %}">~/inicio</a>
+            <a href="/" class="nav-link {% if page.url == '/' %}active{% endif %}">~/home</a>
             <a href="/whoami/" class="nav-link {% if page.url == '/whoami/' %}active{% endif %}">~/whoami</a>
             <a href="/usos/" class="nav-link {% if page.url == '/usos/' %}active{% endif %}">~/usos</a>
+	    <a href="https://payhip.com/valdezdata" class="nav-link external" target="_blank" rel="noopener noreferrer">~/payhip</a>
         </nav>
     </header>
 
     <main>
         <div class="prompt-line">
-            {# --- Usuario y máquina actualizados --- #}
-            <span class="prompt-user">omarvaldez@valdezdata</span>:<span class="prompt-path">~{{ page.url }}</span>$ {{ command or title }}
+            {# --- User--- #}
+            <span class="prompt-user">> </span><span class="prompt-path">~{{ page.url }}</span>$ {{ command or title }}
         </div>
         <div class="output-area mt-2">
-	{# Condicional: Solo muestra estos elementos en la página de inicio (page.url == '/') #}
+	{# Conditional #}
 {% if page.url == '/' %}
 {# Contenedor para el ASCII Art (se rellena con JS) #}
 <pre id="ascii-art" class="ascii-art mb-4" aria-hidden="true"></pre>
@@ -59,6 +59,10 @@
         <a href="https://linkedin.com/in/valdezdata" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
             <i class="fab fa-linkedin"></i>
         </a>
+	{# Enalce a Telegram con icono #}
+	<a href="https://t.me/valdezdata" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Telegram">
+	    <i class="fab fa-telegram"></i>
+	</a>
     </div>
     <p class="mt-4">Generado con <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer" class="text-tokyo-cyan hover:underline">Eleventy</a></p>
 </footer> 
