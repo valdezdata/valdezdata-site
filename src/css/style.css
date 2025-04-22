@@ -1,0 +1,289 @@
+/* src/css/style.css */
+
+/* Colores inspirados en Tokyo Night (ajusta según tu gusto) */
+:root {
+  --tokyo-bg: #1a1b26; /* Fondo principal */
+  --tokyo-fg: #a9b1d6; /* Texto principal */
+  --tokyo-fg-dark: #565f89; /* Texto más oscuro/comentarios */
+  --tokyo-cyan: #7dcfff; /* Cyan para enlaces/énfasis */
+  --tokyo-blue: #7aa2f7; /* Azul para prompt */
+  --tokyo-magenta: #bb9af7; /* Magenta para usuario/host */
+  --tokyo-green: #9ece6a; /* Verde */
+  --tokyo-yellow: #e0af68; /* Amarillo */
+  --tokyo-red: #f7768e; /* Rojo */
+  --tokyo-border: #3b4261; /* Bordes sutiles */
+}
+
+body {
+  background-color: var(--tokyo-bg);
+  color: var(--tokyo-fg);
+  font-family: "Fira Code", monospace; /* Fuente monoespaciada */
+  line-height: 1.6;
+  margin: 0; /* Quitar margen por defecto */
+}
+
+/* Clases de utilidad rápida (opcional, similar a Tailwind) */
+.bg-tokyo-night {
+  background-color: var(--tokyo-bg);
+}
+.text-tokyo-fg {
+  color: var(--tokyo-fg);
+}
+.text-tokyo-fg-dark {
+  color: var(--tokyo-fg-dark);
+}
+.text-tokyo-cyan {
+  color: var(--tokyo-cyan);
+}
+.font-mono {
+  font-family: "Fira Code", monospace;
+}
+.p-4 {
+  padding: 1rem;
+}
+.p-8 {
+  padding: 2rem;
+}
+.md\:p-8 {
+  padding: 2rem;
+} /* Simple media query para padding en pantallas medianas */
+.mb-8 {
+  margin-bottom: 2rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.mt-12 {
+  margin-top: 3rem;
+}
+.flex {
+  display: flex;
+}
+.space-x-4 > *:not([hidden]) ~ *:not([hidden]) {
+  margin-left: 1rem;
+} /* Espacio entre elementos flex */
+.text-sm {
+  font-size: 0.875rem;
+}
+.hover\:underline:hover {
+  text-decoration: underline;
+}
+
+/* Estilo de Navegación */
+.nav-link {
+  color: var(--tokyo-fg-dark);
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: var(--tokyo-cyan);
+  background-color: rgba(
+    125,
+    207,
+    255,
+    0.1
+  ); /* Fondo sutil al pasar el ratón */
+}
+
+.nav-link.active {
+  color: var(--tokyo-green); /* Color para la pestaña activa */
+  border-bottom: 2px solid var(--tokyo-green); /* Indicador de pestaña activa */
+  font-weight: bold;
+}
+
+/* Estilo del Prompt */
+.prompt-line {
+  white-space: nowrap; /* Evitar que el prompt se rompa en varias líneas */
+}
+.prompt-user {
+  color: var(--tokyo-magenta);
+  font-weight: bold;
+}
+.prompt-path {
+  color: var(--tokyo-blue);
+}
+
+/* Área de Salida */
+.output-area {
+  border-left: 3px solid var(--tokyo-fg-dark); /* Simula margen de terminal */
+  padding-left: 1rem;
+}
+
+/* Estilo para encabezados y otros elementos */
+h1,
+h2,
+h3 {
+  color: var(--tokyo-blue); /* Encabezados en azul */
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  font-weight: bold;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+
+a {
+  color: var(--tokyo-cyan);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  background-color: rgba(86, 95, 137, 0.2); /* Fondo sutil para código inline */
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  color: var(--tokyo-yellow);
+}
+
+pre {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.2
+  ); /* Fondo más oscuro para bloques de código */
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto; /* Scroll horizontal si el código es muy largo */
+  border: 1px solid var(--tokyo-border);
+}
+
+pre code {
+  background-color: transparent; /* Quitar fondo doble en bloques pre > code */
+  padding: 0;
+  border-radius: 0;
+  color: inherit; /* Heredar color del pre */
+}
+
+/* Cursor Parpadeante (Opcional) */
+.blinking-cursor {
+  font-weight: bold;
+  animation: blink 1s step-end infinite;
+  color: var(--tokyo-fg);
+  margin-left: 2px; /* Pequeño espacio antes del cursor */
+}
+
+@keyframes blink {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Media Query simple para pantallas más grandes */
+@media (min-width: 768px) {
+  .md\:p-8 {
+    padding: 2rem;
+  }
+}
+
+/* Estilo del Prompt */
+.prompt-line {
+  white-space: nowrap;
+  overflow-x: auto; /* Añadir scroll si es muy largo en pantallas pequeñas */
+  padding-bottom: 5px; /* Espacio para el scrollbar si aparece */
+}
+/* ... (resto de estilos del prompt) ... */
+
+/* Área de Salida */
+.output-area {
+  /* border-left: 3px solid var(--tokyo-fg-dark); */ /* Eliminado para mejor look con ASCII */
+  padding-left: 0; /* Ajustado */
+}
+
+/* Estilo para ASCII Art */
+.ascii-art {
+  color: var(--tokyo-blue); /* Color del ASCII art */
+  font-size: 0.8rem; /* Tamaño de fuente más pequeño para que quepa mejor */
+  line-height: 1; /* Líneas más juntas */
+  white-space: pre; /* Mantiene los espacios y saltos de línea */
+  overflow-x: auto; /* Scroll si es muy ancho */
+  text-align: left; /* Alineación estándar */
+  margin-bottom: 1.5rem; /* Espacio después del ASCII */
+  background-color: transparent !important; /* Sin fondo */
+  border: none !important; /* Sin borde */
+  padding: 0 !important; /* Sin padding */
+}
+
+/* Estilo para el texto que se escribe */
+.typing-output {
+  white-space: pre-wrap; /* Permite saltos de línea y respeta espacios */
+  min-height: 1.6em; /* Evita saltos de layout mientras escribe la primera línea */
+}
+.typing-output:empty::after {
+  content: ""; /* Placeholder mientras está vacío */
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--tokyo-border); /* Línea separadora sutil */
+  padding-top: 1rem;
+}
+
+.social-links a {
+  margin-right: 1rem; /* Espacio entre iconos sociales */
+}
+.social-links a:last-child {
+  margin-right: 0;
+}
+
+/* Cursor Parpadeante (Opcional) */
+.blinking-cursor {
+  font-weight: bold;
+  animation: blink 1s step-end infinite;
+  color: var(--tokyo-fg);
+  margin-left: 2px;
+  /* Asegurar que el cursor no cause overflow */
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+/* Estilo específico para el contenedor de hashtags */
+.hashtags-text {
+  color: var(--tokyo-yellow); /* Amarillo para los hashtags */
+  /* Puedes elegir otro color de tu paleta si prefieres, ej: var(--tokyo-green); */
+}
+
+/* Clase de utilidad para margen superior (si no la tienes ya) */
+.mt-6 {
+  margin-top: 1.5rem; /* 1.5rem de espacio superior (más que mt-4) */
+}
+
+/* Asegúrate que el output de intro no tenga un color fijo que interfiera */
+/* Si intro-output tiene una clase específica con color, quítala o ajusta */
+#intro-output {
+  color: var(
+    --tokyo-fg
+  ); /* Asegura que use el color de texto principal por defecto */
+}
+
+.social-links {
+  text-align: center; /* Centrar los iconos si quieres */
+  margin-bottom: 1rem; /* Espacio debajo de los iconos */
+}
+
+.social-icon i {
+  /* Estilo para los iconos dentro de los enlaces */
+  font-size: 2rem; /* Tamaño del icono (ajusta como necesites) */
+  color: var(--tokyo-cyan); /* Color del icono */
+  transition:
+    transform 0.2s ease-in-out,
+    color 0.2s ease-in-out; /* Transición suave */
+}
+
+.social-icon:hover i {
+  /* Efecto al pasar el ratón sobre el icono */
+  color: var(--tokyo-green); /* Cambiar color al hacer hover */
+  transform: scale(1.2); /* Hacer el icono un poco más grande */
+}
