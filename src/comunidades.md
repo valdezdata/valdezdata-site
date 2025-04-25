@@ -12,7 +12,7 @@ Estaré actualizando eventualmente las **comunidades en español que me encuentr
 - **[Discord - Python en Español](https://discord.gg/hablemospython)**
 - **[Discord - CodinEric](https://discord.gg/swNqzuHY)**
 - **[Discord - DataVentureros](https://discord.gg/aD5rx5dJ)**
-- **[Discord - Data Plumbers](https://discord.gg/Y9rz2HmY)**
+- **[Discord - Data Plumbers](https://discord.gg/QKMGdCCg)**
 - **[Discord - ValdezData](https://discord.gg/xFWcWP7R)**
 - **[Telegram - Datos y Linux en Español](https://t.me/gnulinuxespanol)**
 - **[Telegram - NatayaDev](https://t.me/natayadevcomunidad)**
