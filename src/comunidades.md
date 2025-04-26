@@ -9,7 +9,7 @@ permalink: /comunidades/
 
 Estaré actualizando eventualmente las **comunidades en español que me encuentro sobre datos** en general. Dejaré los URLs aquí:
 
-- **[Discord - Python en Spanish](https://discord.gg/hablemospython)**
+- **[Discord - Python en Español](https://discord.gg/hablemospython)**
 - **[Discord - CodinEric](https://discord.gg/swNqzuHY)**
 - **[Discord - DataVentureros](https://discord.gg/aD5rx5dJ)**
 - **[Discord - Data Plumbers](https://discord.gg/QKMGdCCg)**
